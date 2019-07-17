@@ -1,0 +1,24 @@
+(1) Analyse the stack trace from the beg report. 
+(2) Create an issue ticket in the project management tool like jira & add watchers who should be notified about this issues.
+(3) Categorise the error type into:
+   (A) Application Error
+      (1) Analyse the workflow of that piece of code. 
+          (1.a) Able reproduce the same error in development enviornment?
+             Analyse the recent git commit.
+             Findout anything intersting revert the changes & run locally.
+             No issue after reverting:
+                Compare the changes on that commit & try to figure out the culprit.
+                Change test cases accordingly.
+                Make sure nothing will braek due to this fix.
+                Push these changes & do the deployments based on the branching & deployment strategy.
+          (1.b) Not able to reproduce in development enviornment?
+               Analyse various possibility of this error:
+                  Data issue, enviornment issue, third party integration issue etc
+                  After findout the roor cause make the fix accordinly.
+                  Before production deployment, make sure that fix is working properly in stage enviornment.
+   (B) Devops Error
+      (1) understand the infra where the issue occured.
+      (2) If we have sufficient privillege on the infrastructure, try to dig & findout & fix the issue.
+      (3) Otherwise contact to the corresponding techops team.
+(4) Make sure the issue is fixed in production enviornment after chnages.
+(5) Notify vendors or stake holders about the fix & get the response from their end regarding the fix.
